@@ -27,7 +27,7 @@ public class connectToXEDB {
         try {
 
             connection = DriverManager.getConnection(
-                    "jdbc:oracle:thin:@Nadeera:1521:xe", "test_user", "test_user");
+                    "jdbc:oracle:thin:@Lalama-Acer:1521:xe", "test_user", "test_user");
 
         } catch (SQLException e) {
 
