@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>"index.html"</title>
+</head>
+<body>
+	<h3>Email Delivery via SendGrid</h3>
+	<form action="sendEmail.jsp"  method = "POST">
+		<b> >> Send Email example..... </b>
+		</br>  
+		To: <input type = "text" name = "to_email" value = "lalamaesp@yahoo.com">
+		</br>
+		From: <input type = "text" name = "from_email"  value = "lalamaesp@gmail.com">
+		</br>
+		<input type = "submit" value = "sendEmailPOST" />
+	       	</br>
+	       	<b>Mail Sent Result: </b>${mailResult} 						
+	</form>		   	     			
+</body>
+</html>
