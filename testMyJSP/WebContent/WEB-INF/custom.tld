@@ -1,0 +1,21 @@
+<taglib>
+	<tlib-version>1.0</tlib-version>
+	<jsp-version>2.0</jsp-version>
+	<short-name>Example TLD</short-name>
+
+	<tag>
+		<name>CustomTag1</name>
+		<tag-class>com.testMyJSP.classes.CustomTagExample</tag-class>
+		<body-content>empty</body-content>
+	</tag>
+	<tag>
+		<name>CustomTag2</name>
+		<tag-class>com.testMyJSP.classes.CustomTagExAttributes</tag-class>
+		<body-content>scriptless</body-content>
+		
+		<attribute>
+			<name>attrCustomTag2</name>
+		</attribute>
+		
+	</tag>	
+</taglib>

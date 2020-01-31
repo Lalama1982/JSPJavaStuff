@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>"index.html"</title>
+</head>
+<body>
+	<h2>"Locale Settings using"</h2>
+	<a href="localeValues.jsp">Continue at "localeValues.jsp"</a>
+	
+	<h2>"scriptlet, expression, implicit objects, declaration tag, directives, if-else/loops"</h2>
+	<form action="welcome"> <!-- here, "welcome" is mapped to "welcome.jsp" in "web.xml" -->
+	<!--form action="welcome.jsp"-->
+	<!--form action="welcome2.jsp"-->
+		<label>uname: </label>
+		<input type="text" name="uname"> 
+		<input type="submit" value="go">
+		<br />
+	</form>
+	
+	<h2>"Error handlings using "process.jsp" "</h2>	
+	<form action="process.jsp">  
+		No1:<input type="text" name="n1" /><br/><br/>  
+		No2:<input type="text" name="n2" /><br/><br/>  
+		<input type="submit" value="divide"/>  
+	</form>
+
+	<h2>"File Upload"</h2>
+	<b>Requires "commons-fileupload-1.4.jar" & "commons-io-2.6.jar" at "WebContent\WEB-INF\lib"</b>
+	<br/>		
+   	<form action = "formUpload.jsp" method = "post"	enctype = "multipart/form-data">
+   		Select a file to upload:
+   		<br/>
+      	<input type = "file" name = "file" size = "50" />
+      	</br>
+      	<input type = "submit" value = "uploadFile" />
+   	</form>	
+   	
+   	<h2> "DataBase Connection: ORACLE"</h2>
+   	<b>Requires "jstl.jar" & "ojdbc7.jar" at "WebContent\WEB-INF\lib" and need to add</b>
+   	</br>
+   	<a href="dataBase.jsp">"dataBase.jsp"/ Insert & Select & Delete</a>
+
+   	<h2> "XML Data"</h2>
+   	<b>Requires "jstl.jar" , "xalan.jar" , "xercesImpl.jar" at "WebContent\WEB-INF\lib" and need to add</b>
+   	</br>
+   	<b>At the moment not working, suggested to use xml-apis</b>
+   	<a href="xmlProcessing.jsp">"xmlProcessing.jsp"</a>
+   	   	
+      			
+</body>
+</html>

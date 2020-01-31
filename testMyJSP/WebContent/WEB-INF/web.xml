@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	id="WebApp_ID" version="3.0">
+	<display-name>testMyJSP</display-name>
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.htm</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>default.html</welcome-file>
+		<welcome-file>default.htm</welcome-file>
+		<welcome-file>default.jsp</welcome-file>
+	</welcome-file-list>
+
+	<!-- Setting time-out/validity of the session  -->
+	<session-config>
+		<session-timeout>150</session-timeout>
+	</session-config>
+	
+	<!-- SERVLETS  -->
+	<servlet>
+		<servlet-name>t_servlet_name</servlet-name>
+		<!-- <jsp-file>/welcome.jsp</jsp-file>  -->
+		<jsp-file>/welcomeLanding.jsp</jsp-file> <!-- Implementing "jsp:forward" action tag -->
+
+		<init-param>
+			<param-name>dname</param-name>
+			<param-value>sun.jdbc.odbc.JdbcOdbcDriver</param-value>
+		</init-param>
+	</servlet>
+	
+	<servlet>
+		<display-name>Servlet_FileUpload</display-name>
+		<servlet-name>Servlet_FileUpload</servlet-name>
+		<servlet-class>com.testMyJSP.FileUploadServlet</servlet-class>
+	</servlet>	
+	<!-- end of SERVLETS  -->
+	
+	<!-- SERVLET-MAPPINGS  -->	
+	<servlet-mapping>
+		<servlet-name>t_servlet_name</servlet-name>
+		<url-pattern>/welcome</url-pattern>
+		<!-- here, "action" in "index.html" which is "welcome" mapped to "welcome.jsp" via  servlet name "t_servlet_name" -->
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>Servlet_FileUpload</servlet-name>
+	  	<url-pattern>/uploadFileViaServlet</url-pattern>
+	</servlet-mapping>	
+	<!-- end of SERVLET-MAPPINGS  -->
+	
+	<!-- FILTERS  -->
+	<filter>
+		<!-- Here it refers the "LogFilter.java" in Java Resources  -->
+		<!-- First filter class  -->	
+		<filter-name>LogFilter</filter-name>
+		<filter-class>com.testMyJSP.LogFilter</filter-class>
+	   
+	   	<init-param>
+	    	<param-name>test-param</param-name>
+	      	<param-value>Initialization Paramter</param-value>
+	   	</init-param>
+	</filter>
+
+	<!-- Example second filter class definition  -->
+	<!-- Here it refers the "AuthenFilter.java" in Java Resources  -->
+	<!-- Second filter class  -->
+	<!-- 
+		<filter>
+			<filter-name>AuthenFilter</filter-name>
+		   	<filter-class>AuthenFilter</filter-class>
+		   	<init-param>
+		    	<param-name>test-param</param-name>
+		      	<param-value>Initialization Paramter</param-value>
+		   	</init-param>
+		</filter>
+ 	-->
+	<!-- end of FILTERS  -->
+
+	<!-- FILTER-MAPPINGS  --> 				
+	<!-- Below specifies the filter mapping & order(sequence) in which filters will be executed  --> 
+	<filter-mapping>
+		<!-- Here it refers the "LogFilter.java" in Java Resources  -->	
+		<filter-name>LogFilter</filter-name>
+		<!-- Here it executes for URL patterns, can be specific as well  -->		
+	   	<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<!-- Example second filter class definition  -->	
+	<!-- Here it refers the "AuthenFilter.java" in Java Resources  -->
+	<!--
+		<filter-mapping>
+	   		<filter-name>AuthenFilter</filter-name>
+	   		<url-pattern>/*</url-pattern>
+		</filter-mapping>
+	-->
+	<!-- end of FILTER-MAPPINGS  -->	
+
+	<!-- FILE UPLOAD  -->
+	<context-param> 
+		<description>Location to store uploaded file</description> 
+		<param-name>file-save-path</param-name> 
+		<param-value>
+		   E:\Resources\codeWork\eclipseJSP_Stuff\testMyJSP\fileUploadSaveLoc\
+		</param-value> 
+	</context-param>		
+	<!-- end of FILE UPLOAD  -->	
+
+	<!-- ERRORS  -->
+	<!-- Error code specific, error handling
+		<error-page>  
+			<error-code>500</error-code>  
+		 	<location>/error.jsp</location>  
+		</error-page>
+   	-->   	
+	<error-page>  
+		<!-- exception-type>java.lang.Exception</exception-type -->  
+	 	<location>/error.jsp</location>  
+	</error-page>  	
+	<!-- end of ERROS  -->
+</web-app>
