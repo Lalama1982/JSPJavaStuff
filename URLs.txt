@@ -1,3 +1,0 @@
-http://localhost:8080/CallAPIServlet/
-http://localhost:8080/CallAPIServlet/ServlTest?param1=1
-Changed the Java Compile to 1.8 to match the Tomcat Java Version
